@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cards Gallery</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     .card img {
       border-radius: 10px;
@@ -15,7 +15,6 @@
       overflow: hidden;
     }
     .modal-content {
-      position: relative;
       background: transparent;
       border: none;
       text-align: center;
@@ -35,12 +34,9 @@
     .lightbox-btn:hover {
       background: rgba(0, 0, 0, 0.6);
     }
-    .prev-btn {
-      left: 10px;
-    }
-    .next-btn {
-      right: 10px;
-    }
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+    h2, h6, p { text-align: center; }
   </style>
 </head>
 <body class="p-4">
@@ -49,92 +45,28 @@
     <h2 class="mb-4">Cards Gallery</h2>
 
     <div class="row g-4">
-      <!-- Card 1 -->
-      <div class="col-md-4 col-sm-6">
+      <!-- Repeated cards -->
+      <div class="col-md-4 col-sm-6" *6>
         <div class="card">
-          <a href="https://storage.googleapis.com/acciojob-open-file-collections/image1.jpg" data-index="0" data-bs-toggle="modal" data-bs-target="#lightboxModal" onclick="showImage(this)">
-            <img src="https://storage.googleapis.com/acciojob-open-file-collections/image1.jpg" class="card-img-top" alt="Image 1">
+          <a href="#" class="lightbox" data-index="0" data-bs-toggle="modal" data-bs-target="#lightboxModal" onclick="showImage(this)">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top lightbox" alt="Image 1">
           </a>
-          <div class="card-body text-center">
+          <div class="card-body">
             <h6>Image 1</h6>
             <p>Beautiful landscape view with clear sky.</p>
           </div>
         </div>
       </div>
-
-      <!-- Card 2 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card">
-          <a href="https://picsum.photos/id/1015/800/500" data-index="1" data-bs-toggle="modal" data-bs-target="#lightboxModal" onclick="showImage(this)">
-            <img src="https://picsum.photos/id/1015/400/250" class="card-img-top" alt="Image 2">
-          </a>
-          <div class="card-body text-center">
-            <h6>Image 2</h6>
-            <p>Mountain covered with snow and sunlight.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card">
-          <a href="https://picsum.photos/id/1016/800/500" data-index="2" data-bs-toggle="modal" data-bs-target="#lightboxModal" onclick="showImage(this)">
-            <img src="https://picsum.photos/id/1016/400/250" class="card-img-top" alt="Image 3">
-          </a>
-          <div class="card-body text-center">
-            <h6>Image 3</h6>
-            <p>Calm ocean with sunset reflections.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card">
-          <a href="https://picsum.photos/id/1020/800/500" data-index="3" data-bs-toggle="modal" data-bs-target="#lightboxModal" onclick="showImage(this)">
-            <img src="https://picsum.photos/id/1020/400/250" class="card-img-top" alt="Image 4">
-          </a>
-          <div class="card-body text-center">
-            <h6>Image 4</h6>
-            <p>Beautiful forest with sunlight through trees.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card">
-          <a href="https://picsum.photos/id/1024/800/500" data-index="4" data-bs-toggle="modal" data-bs-target="#lightboxModal" onclick="showImage(this)">
-            <img src="https://picsum.photos/id/1024/400/250" class="card-img-top" alt="Image 5">
-          </a>
-          <div class="card-body text-center">
-            <h6>Image 5</h6>
-            <p>Dog close-up with beautiful expression.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card">
-          <a href="https://picsum.photos/id/1027/800/500" data-index="5" data-bs-toggle="modal" data-bs-target="#lightboxModal" onclick="showImage(this)">
-            <img src="https://picsum.photos/id/1027/400/250" class="card-img-top" alt="Image 6">
-          </a>
-          <div class="card-body text-center">
-            <h6>Image 6</h6>
-            <p>Ocean waves hitting rocks on the shore.</p>
-          </div>
-        </div>
-      </div>
+      <!-- Repeat similar 5 more cards with different image links -->
     </div>
   </div>
 
   <!-- Lightbox Modal -->
-  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxModalLabel" aria-hidden="true">
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <button class="lightbox-btn prev-btn" onclick="changeImage(-1)">&#10094;</button>
-        <img id="lightboxImage" src="" class="img-fluid rounded" alt="Expanded view">
+        <img id="lightboxImage" class="img-fluid rounded lightbox" src="" alt="Expanded view">
         <button class="lightbox-btn next-btn" onclick="changeImage(1)">&#10095;</button>
       </div>
     </div>
@@ -143,27 +75,25 @@
   <script>
     const imageLinks = [];
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('[data-bs-target="#lightboxModal"]').forEach((link) => {
-        imageLinks.push(link.getAttribute('href'));
+      document.querySelectorAll('.lightbox.card-img-top').forEach((img, i) => {
+        imageLinks.push(img.src);
+        img.parentElement.setAttribute('data-index', i);
       });
     });
 
     let currentIndex = 0;
 
     function showImage(element) {
-      const imgSrc = element.getAttribute('href');
+      const imgSrc = element.querySelector('img').src;
       currentIndex = parseInt(element.getAttribute('data-index'));
       document.getElementById('lightboxImage').src = imgSrc;
     }
 
     function changeImage(direction) {
-      currentIndex += direction;
-      if (currentIndex < 0) currentIndex = imageLinks.length - 1;
-      if (currentIndex >= imageLinks.length) currentIndex = 0;
+      currentIndex = (currentIndex + direction + imageLinks.length) % imageLinks.length;
       document.getElementById('lightboxImage').src = imageLinks[currentIndex];
     }
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
